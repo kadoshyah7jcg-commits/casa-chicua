@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Bienvenida / Welcome Guide</title>
+    <style>
+        body {
+            background-color: #1c221f;
+            background-image: linear-gradient(rgba(15, 20, 17, 0.36), rgba(15, 20, 17, 0.48)), url("fondo-casa.jpg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            box-sizing: border-box;
+            color: #ffffff;
+            font-family: system-ui, -apple-system, sans-serif;
+            padding: 2rem;
+            margin: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin: 0 0 0.5rem 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85);
+        }
+
+        p {
+            color: #f1f5f2;
+            font-size: 1.1rem;
+            margin: 0;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.85);
+        }
+
+        .btn-idioma {
+            background-color: rgba(24, 28, 26, 0.88);
+            color: #ffffff;
+            border: 2px solid #4caf50;
+            border-radius: 10px;
+            padding: 0.7rem 1.2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-idioma:hover,
+        .btn-idioma:focus {
+            background-color: #2e7d32;
+            outline: none;
+        }
+
+        .botones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .card-btn {
+            background-color: rgba(24, 28, 26, 0.82);
+            color: #ffffff;
+            border: 2px solid rgba(255, 255, 255, 0.16);
+            border-top-width: 6px;
+            border-radius: 12px;
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+            transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .card-btn.wifi { border-top-color: #29b6f6; }
+        .card-btn.incluye { border-top-color: #66bb6a; }
+        .card-btn.reglas { border-top-color: #ab47bc; }
+        .card-btn.ayuda { border-top-color: #26a69a; }
+
+        .card-btn.wifi:hover, .card-btn.wifi:focus {
+            border-color: #29b6f6;
+            background-color: rgba(22, 36, 46, 0.94);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .card-btn.incluye:hover, .card-btn.incluye:focus {
+            border-color: #66bb6a;
+            background-color: rgba(23, 42, 28, 0.94);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .card-btn.reglas:hover, .card-btn.reglas:focus {
+            border-color: #ab47bc;
+            background-color: rgba(38, 22, 43, 0.94);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        .card-btn.ayuda:hover, .card-btn.ayuda:focus {
+            border-color: #26a69a;
+            background-color: rgba(20, 42, 40, 0.94);
+            transform: translateY(-3px);
+            outline: none;
+        }
+
+        #panel-info {
+            display: none;
+            margin-top: 2rem;
+            background-color: rgba(20, 24, 22, 0.95);
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        #panel-titulo {
+            margin-top: 0;
+            color: #81c784;
+            font-size: 1.5rem;
+        }
+
+        #panel-texto {
+            color: #ffffff;
+            line-height: 1.65;
+            margin-bottom: 1rem;
+            text-shadow: none;
+        }
+
+        #panel-texto ul {
+            margin: 0.4rem 0 0 1.2rem;
+            padding: 0;
+        }
+
+        #panel-texto li {
+            margin-bottom: 0.45rem;
+        }
+
+        .dato-wifi {
+            margin: 0.6rem 0;
+            font-size: 1.15rem;
+        }
+
+        .aviso-clave {
+            display: inline-block;
+            background-color: rgba(41, 182, 246, 0.16);
+            border: 1px solid #29b6f6;
+            color: #81d4fa;
+            padding: 0.35rem 0.8rem;
+            border-radius: 8px;
+            font-size: 1.05rem;
+        }
+
+        .whatsapp-destacado {
+            display: inline-block;
+            margin-top: 0.5rem;
+            background-color: rgba(38, 166, 154, 0.18);
+            border: 1px solid #26a69a;
+            color: #80cbc4;
+            padding: 0.35rem 0.85rem;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+        }
+
+        .btn-cerrar {
+            margin-top: 1rem;
+            padding: 0.8rem 1.4rem;
+            background-color: #2e7d32;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <h1 id="titulo-principal">¡Bienvenidos!</h1>
+            <p id="subtitulo-principal">Selecciona una opción para ver las instrucciones.</p>
+        </div>
+        <button id="btn-idioma" class="btn-idioma" onclick="alternarIdioma()">🌐 English</button>
+    </header>
+
+    <div class="botones">
+        <button id="btn-wifi" class="card-btn wifi" onclick="mostrarInfo('wifi')">📶 Conexión Wi-Fi</button>
+        <button id="btn-incluye" class="card-btn incluye" onclick="mostrarInfo('incluye')">✅ Qué incluye la casa</button>
+        <button id="btn-reglas" class="card-btn reglas" onclick="mostrarInfo('reglas')">📋 Horarios y Reglas</button>
+        <button id="btn-ayuda" class="card-btn ayuda" onclick="mostrarInfo('ayuda')">💬 Ayuda / WhatsApp</button>
+    </div>
+
+    <div id="panel-info">
+        <h2 id="panel-titulo"></h2>
+        <div id="panel-texto"></div>
+        <button id="btn-cerrar" class="btn-cerrar" onclick="cerrarInfo()">Cerrar</button>
+    </div>
+
+    <script>
+        const RED_WIFI = "casa chicua 5G";
+        const WHATSAPP_CEL = "+506 8500 8575";
+
+        let idiomaActual = "es";
+        let seccionAbierta = null;
+
+        const textos = {
+            es: {
+                titulo: "¡Bienvenidos!",
+                subtitulo: "Selecciona una opción para ver las instrucciones.",
+                botonIdioma: "🌐 English",
+                cerrar: "Cerrar",
+                botones: {
+                    wifi: "📶 Conexión Wi-Fi",
+                    incluye: "✅ Qué incluye la casa",
+                    reglas: "📋 Horarios y Reglas",
+                    ayuda: "💬 Ayuda / WhatsApp"
+                },
+                instrucciones: {
+                    wifi: {
+                        titulo: "Conexión Wi-Fi",
+                        html: `<p class="dato-wifi">Red: <strong>${RED_WIFI}</strong></p>
+                               <p class="dato-wifi"><span class="aviso-clave">La contraseña se proporciona al llegar o en la nota dentro de la casa.</span></p>`
+                    },
+                    incluye: {
+                        titulo: "Qué incluye la casa",
+                        html: `<ul>
+                            <li>Wi-Fi de alta velocidad y Smart TV.</li>
+                            <li>Cocina equipada, utensilios básicos, <strong>azúcar y sal</strong> disponibles.</li>
+                            <li><strong>Cafetera:</strong> filtros y café en el cajón superior.</li>
+                            <li><strong>Calentadores eléctricos:</strong> disponibles en las habitaciones y la sala, se manejan con <strong>control remoto</strong>.</li>
+                            <li><strong>Agua caliente:</strong> gira la llave hacia la izquierda y espera unos segundos.</li>
+                            <li>Ropa de cama, cobijas extras y toallas limpias.</li>
+                            <li>Estacionamiento seguro en la propiedad.</li>
+                        </ul>`
+                    },
+                    reglas: {
+                        titulo: "Horarios y Reglas",
+                        html: `<ul>
+                            <li><strong>Seguridad:</strong> siempre mantener el portón cerrado. Contamos con <strong>cámara de vigilancia externa en tiempo real</strong> en las áreas exteriores.</li>
+                            <li><strong>Salida (check-out):</strong> 11:00 AM. Al salir, solamente deja las llaves sobre la mesa y cierra la puerta y el portón, por favor.</li>
+                            <li><strong>Descanso:</strong> mantener volumen moderado después de las 10:00 PM.</li>
+                        </ul>`
+                    },
+                    ayuda: {
+                        titulo: "Ayuda y Preguntas por WhatsApp",
+                        html: `<p>¿Tienes alguna duda o necesitas ayuda durante tu estadía? Escríbenos por WhatsApp al:</p>
+                               <p class="whatsapp-destacado">WhatsApp: ${WHATSAPP_CEL}</p>`
+                    }
+                }
+            },
+            en: {
+                titulo: "Welcome!",
+                subtitulo: "Select an option to view the instructions.",
+                botonIdioma: "🌐 Español",
+                cerrar: "Close",
+                botones: {
+                    wifi: "📶 Wi-Fi Connection",
+                    incluye: "✅ What's Included",
+                    reglas: "📋 Hours & Rules",
+                    ayuda: "💬 Help / WhatsApp"
+                },
+                instrucciones: {
+                    wifi: {
+                        titulo: "Wi-Fi Connection",
+                        html: `<p class="dato-wifi">Network: <strong>${RED_WIFI}</strong></p>
+                               <p class="dato-wifi"><span class="aviso-clave">Password is provided upon arrival or on the note inside the house.</span></p>`
+                    },
+                    incluye: {
+                        titulo: "What's Included",
+                        html: `<ul>
+                            <li>High-speed Wi-Fi and Smart TV.</li>
+                            <li>Equipped kitchen, basic cookware, plus <strong>sugar and salt</strong> available.</li>
+                            <li><strong>Coffee maker:</strong> filters and coffee are in the top drawer.</li>
+                            <li><strong>Electric heaters:</strong> located in the bedrooms and living room, operated with a <strong>remote control</strong>.</li>
+                            <li><strong>Hot water:</strong> turn the handle to the left and wait a few seconds.</li>
+                            <li>Bed linens, extra blankets, and clean towels.</li>
+                            <li>On-site parking.</li>
+                        </ul>`
+                    },
+                    reglas: {
+                        titulo: "Hours & Rules",
+                        html: `<ul>
+                            <li><strong>Security:</strong> please keep the gate closed at all times. We have <strong>real-time external security cameras</strong> covering outdoor areas.</li>
+                            <li><strong>Check-out:</strong> 11:00 AM. When leaving, simply leave the keys on the table and close the door and the gate, please.</li>
+                            <li><strong>Quiet hours:</strong> please keep noise moderate after 10:00 PM.</li>
+                        </ul>`
+                    },
+                    ayuda: {
+                        titulo: "Help & Questions via WhatsApp",
+                        html: `<p>Have any questions or need help during your stay? Message us on WhatsApp at:</p>
+                               <p class="whatsapp-destacado">WhatsApp: ${WHATSAPP_CEL}</p>`
+                    }
+                }
+            }
+        };
+
+        function actualizarInterfaz() {
+            const t = textos[idiomaActual];
+            document.documentElement.lang = idiomaActual;
+            document.getElementById("titulo-principal").textContent = t.titulo;
+            document.getElementById("subtitulo-principal").textContent = t.subtitulo;
+            document.getElementById("btn-idioma").textContent = t.botonIdioma;
+            document.getElementById("btn-wifi").textContent = t.botones.wifi;
+            document.getElementById("btn-incluye").textContent = t.botones.incluye;
+            document.getElementById("btn-reglas").textContent = t.botones.reglas;
+            document.getElementById("btn-ayuda").textContent = t.botones.ayuda;
+            document.getElementById("btn-cerrar").textContent = t.cerrar;
+
+            if (seccionAbierta) {
+                mostrarInfo(seccionAbierta);
+            }
+        }
+
+        function alternarIdioma() {
+            idiomaActual = idiomaActual === "es" ? "en" : "es";
+            actualizarInterfaz();
+        }
+
+        function mostrarInfo(clave) {
+            seccionAbierta = clave;
+            const t = textos[idiomaActual];
+            const item = t.instrucciones[clave];
+
+            document.getElementById("panel-titulo").textContent = item.titulo;
+            document.getElementById("panel-texto").innerHTML = item.html;
+            document.getElementById("panel-info").style.display = "block";
+        }
+
+        function cerrarInfo() {
+            seccionAbierta = null;
+            document.getElementById("panel-info").style.display = "none";
+        }
+    </script>
+</body>
+</html>
